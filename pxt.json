@@ -1,7 +1,7 @@
 {
     "name": "enorasis-core",
-    "version": "0.1.0",
-    "description": "Receive AI class labels from enorasisCore over BLE UART (micro:bit v2)",
+    "version": "0.1.1",
+    "description": "enorasisCore: receive AI / machine learning class labels from the browser over BLE (micro:bit v2)",
     "license": "MIT",
     "dependencies": {
         "core": "*",
@@ -9,7 +9,10 @@
     },
     "files": [
         "README.md",
+        "LICENSE.txt",
+        "icon.png",
         "enorasisCore.ts",
+        "test.ts",
         "_locales/en/enorasis-core-strings.json",
         "_locales/el/enorasis-core-strings.json"
     ],

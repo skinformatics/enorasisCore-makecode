@@ -1,9 +1,10 @@
 /**
- * enorasisCore — BLE UART receiver for BBC micro:bit.
- * Receives class labels trained in enorasisCore (browser) via Nordic UART.
- * Protocol: UTF-8 class name + newline (\\n). Do not change without browser sync.
+ * enorasisCore — connect micro:bit to browser Machine Learning (enorasiscore.eu).
+ * The AI runs in the browser; the micro:bit receives class labels over BLE UART.
  */
 //% weight=95 color=#0066CC icon="\uf1eb"
+//% blockNamespace=enorasisCore
+//% blockGap=8
 namespace enorasisCore {
     let _lastClass = ""
     let _listenerReady = false
@@ -35,10 +36,11 @@ namespace enorasisCore {
     }
 
     /**
-     * Start BLE UART for enorasisCore. Place at the start of your program.
+     * Start BLE so enorasisCore can send AI class labels from the browser.
      */
     //% blockId=enorasis_start block="start enorasisCore BLE"
     //% weight=100 blockGap=8
+    //% help=enorasisCore/start
     export function start(): void {
         bluetooth.startUartService()
         ensureUartListener()
@@ -46,10 +48,11 @@ namespace enorasisCore {
     }
 
     /**
-     * The most recently received class label from enorasisCore.
+     * The class name last sent by enorasisCore AI (e.g. left, red, go).
      */
     //% blockId=enorasis_last_class block="last enorasisCore class"
     //% weight=80
+    //% help=enorasisCore/last-class
     export function lastClass(): string {
         return _lastClass
     }
@@ -65,23 +68,25 @@ namespace enorasisCore {
     }
 
     /**
-     * Run code when any class label is received from enorasisCore.
+     * Run when the AI in enorasisCore detects any trained class.
      */
     //% blockId=enorasis_on_any_class block="on enorasisCore class received"
     //% weight=90 blockGap=8
     //% draggable=false blockAllowMultiple=false
+    //% help=enorasisCore/on-class-received
     export function onAnyClassReceived(handler: () => void): void {
         ensureUartListener()
         _anyClassHandlers.push(handler)
     }
 
     /**
-     * Run code when a specific class label is received.
+     * Run when the AI sends this exact class name (must match Train in enorasisCore).
      */
     //% blockId=enorasis_on_class block="on enorasisCore class %className received"
     //% className.defl=""
     //% weight=89 blockGap=8
     //% draggable=false
+    //% help=enorasisCore/on-class-name-received
     export function onClassReceived(className: string, handler: () => void): void {
         ensureUartListener()
         let entry: ClassHandler = { name: className, handler: handler }
