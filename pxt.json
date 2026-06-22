@@ -1,0 +1,30 @@
+{
+    "name": "enorasis-core",
+    "version": "0.1.0",
+    "description": "Receive AI class labels from enorasisCore over BLE UART (micro:bit v2)",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "bluetooth": "*"
+    },
+    "files": [
+        "README.md",
+        "enorasisCore.ts",
+        "_locales/en/enorasis-core-strings.json",
+        "_locales/el/enorasis-core-strings.json"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "enabled": 1
+                }
+            }
+        }
+    }
+}

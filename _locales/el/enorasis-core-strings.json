@@ -1,0 +1,9 @@
+{
+    "enorasisCore.start": "έναρξη enorasisCore BLE",
+    "enorasisCore.lastClass": "τελευταία κλάση enorasisCore",
+    "enorasisCore.classIs": "κλάση enorasisCore είναι %name",
+    "enorasisCore.onAnyClassReceived": "όταν λάβω κλάση enorasisCore",
+    "enorasisCore.onClassReceived": "όταν λάβω κλάση %className από enorasisCore",
+    "enorasisCore.onConnected": "όταν συνδεθεί enorasisCore",
+    "enorasisCore.onDisconnected": "όταν αποσυνδεθεί enorasisCore"
+}

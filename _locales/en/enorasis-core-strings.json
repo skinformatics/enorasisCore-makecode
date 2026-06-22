@@ -1,0 +1,9 @@
+{
+    "enorasisCore.start": "start enorasisCore BLE",
+    "enorasisCore.lastClass": "last enorasisCore class",
+    "enorasisCore.classIs": "enorasisCore class is %name",
+    "enorasisCore.onAnyClassReceived": "on enorasisCore class received",
+    "enorasisCore.onClassReceived": "on enorasisCore class %className received",
+    "enorasisCore.onConnected": "on enorasisCore connected",
+    "enorasisCore.onDisconnected": "on enorasisCore disconnected"
+}
