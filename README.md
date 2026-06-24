@@ -164,7 +164,7 @@ Do **not** change the BLE protocol without updating the enorasisCore platform.
 - **Platform:** [enorasiscore.eu](https://enorasiscore.eu)
 - **Staging:** [enorasiscore.etux4u.gr](https://enorasiscore.etux4u.gr)
 - **This extension (public):** [github.com/skinformatics/enorasisCore-makecode](https://github.com/skinformatics/enorasisCore-makecode)
-- **Platform source (private dev):** [cursor_enorasisCore](https://github.com/skinformatics/cursor_enorasisCore)
+- **Platform source (private dev):** [enorasisCore](https://github.com/skinformatics/cursor_enorasisCore)
 
 MIT © 2026 skinformatics / enorasisCore
 
