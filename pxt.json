@@ -1,7 +1,7 @@
 {
     "name": "enorasis-core",
-    "version": "0.1.1",
-    "description": "enorasisCore: receive AI / machine learning class labels from the browser over BLE (micro:bit v2)",
+    "version": "0.1.2",
+    "description": "Human vision for micro:bit: browser AI (ML) sees objects & colours — BLE sends class labels to your blocks (v2)",
     "license": "MIT",
     "dependencies": {
         "core": "*",
