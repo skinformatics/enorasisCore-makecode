@@ -1,216 +1,162 @@
-# enorasisCore — MakeCode Extension
+# enorasis-core
 
-> **Human vision for the BBC micro:bit v2.**  
-> Train Artificial Intelligence in the browser. Your robot sees — and reacts.
+![enorasisCore extension icon — machine learning vision for micro:bit](icon.png)
 
-[![enorasisCore](https://img.shields.io/badge/platform-enorasisCore.eu-blue)](https://enorasiscore.eu)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.txt)
-[![micro:bit v2](https://img.shields.io/badge/micro:bit-v2-00ED00)](https://microbit.org/)
-[![Tested](https://img.shields.io/badge/classroom-tested-success)](https://github.com/skinformatics/enorasisCore-makecode)
+**Human vision for the BBC micro:bit v2.** Connect browser-based machine learning to your MakeCode projects.
 
-**Install URL:** `https://github.com/skinformatics/enorasisCore-makecode`
+Train image classes in [enorasisCore](https://enorasiscore.eu) (no install). When the AI recognises what the camera sees, it sends a **class label** over Bluetooth to your micro:bit. Your blocks turn that label into action — servos, motors, LEDs, and logic.
 
----
-
-## In one sentence
-
-This extension connects a **micro:bit** to **machine learning in the web browser**, so your board can **act on what a camera sees** — colours, shapes, arrows, objects you teach — without running heavy AI on the micro:bit itself.
+| | |
+|---|---|
+| **Product** | [enorasiscore.eu](https://enorasiscore.eu) |
+| **License** | [MIT](LICENSE.txt) |
+| **Board** | BBC micro:bit **v2** |
+| **Install** | `https://github.com/skinformatics/enorasisCore-makecode` |
 
 ---
 
-## Why this matters — giving “eyes” to the micro:bit
+## Educational purpose
 
-Until now, a micro:bit could read buttons, tilt, or light — but **not recognise a red cup, a left arrow, or your face**. That kind of understanding is **human-like vision**, and it normally needs a powerful computer.
+The micro:bit is excellent for physical computing, but it cannot **see** objects the way people do. This extension closes that gap for schools:
 
-**enorasisCore** runs **Machine Learning** in Chrome/Edge: students collect photos, **Train** classes, and **Test** live from a phone or laptop camera.
+1. **Camera** (phone or computer) captures the world.
+2. **Machine learning** in the browser (enorasisCore) classifies images into classes you define.
+3. **Bluetooth** delivers the class name to the micro:bit.
+4. **MakeCode blocks** (this extension) run your response.
 
-**This extension is the bridge:** when the AI recognises something, it sends a short **class name** (e.g. `left`, `red`, `stop`) over **Bluetooth** to the micro:bit. Your MakeCode blocks turn that label into **movement** — servos, motors, LEDs, sounds.
+The neural network runs in the **browser**, not on the micro:bit — keeping projects fast, simple, and suitable for classrooms. Students learn the full STEM path: **data → train → inference → actuate**.
+
+This pattern matches many real systems: smart sensing on a capable device, control on a small board.
+
+---
+
+## How it works
 
 ```
-   CAMERA (eyes)          BRAIN (browser ML)         BODY (micro:bit)
- ┌─────────────┐         ┌──────────────────┐       ┌─────────────────┐
- │ Phone / PC  │  ───►   │ enorasisCore     │ BLE   │ Your blocks:    │
- │ sees world  │  Train  │ classifies image │ ───►  │ servo, motor,   │
- └─────────────┘  Test   └──────────────────┘       │ LED, logic…     │
-                                                       └─────────────────┘
+  Camera          enorasisCore (browser ML)       micro:bit v2
+ ┌────────┐       ┌─────────────────────┐        ┌──────────────┐
+ │ image  │ Train │ classify → label    │  BLE   │ your blocks  │
+ │ input  │ Test  │ e.g. "left", "red"  │ ─────► │ servo, LED…  │
+ └────────┘       └─────────────────────┘        └──────────────┘
 ```
 
-| Without this extension | With enorasisCore + this extension |
-|------------------------|-------------------------------------|
-| Fixed sensors only | **Vision-guided** projects |
-| Copy-paste UART JavaScript | **Blocks** for teachers & students |
-| ML disconnected from hardware | **End-to-end STEM story**: data → train → deploy |
-
-The micro:bit still does **not** run the neural network (by design — simple, fast, school-friendly). It receives **decisions** from the AI. That is how real products work too: smart camera in the cloud or on a phone, actuator on a small board.
-
-**Educational value:** learners see that **AI is not magic** — it is trained data, labels, and a clear path from **“what I see”** to **“what my robot does”.**
+**Protocol (fixed):** Nordic UART service; each message is a UTF-8 **class name** followed by a newline character (`\n`). Connect only from enorasisCore in Chrome or Edge (Web Bluetooth).
 
 ---
 
-## Με δικά μας λόγια (για εκπαιδευτές)
+## Install
 
-Το micro:bit είναι φανταστικό για ρομποτική — αλλά **δεν βλέπει**. Δεν ξέρει μόνο του αν μπροστά του είναι κόκκινο αντικείμενο, βέλος αριστερά ή πρόσωπο.
+1. Open [makecode.microbit.org](https://makecode.microbit.org/).
+2. Create a **New Project**.
+3. Open **Extensions** (gear menu).
+4. Paste: `https://github.com/skinformatics/enorasisCore-makecode`
+5. Select **enorasis-core**.
+6. Build your program, **Download** the `.hex`, and flash the micro:bit.
 
-Η **enorasisCore** βάζει την **όραση** στο **browser**: ο μαθητής μαζεύει εικόνες, κάνει **Train**, βλέπει live **Test** από κάμερα κινητού ή laptop.
+**macOS users:** Project Settings → enable **No Pairing Required** → Save → Download again.
 
-**Αυτό το extension δίνει ανθρώπινη όραση στο micro:bit** — όχι με βαρύ AI στην πλακέτα, αλλά στέλνοντας **αυτό που «κατάλαβε» η Τεχνητή Νοημοσύνη** (όνομα κλάσης) μέσω **Bluetooth**. Τα blocks MakeCode μετατρέπουν την ετικέτα σε **πράξη**: servo, motor, εικονίδιο, στάση.
-
-Αυτό είναι σπουδαίο για STEM επειδή:
-
-- Δείχνει **ολόκληρη τη ροή ML**: δεδομένα → εκπαίδευση → απόφαση → hardware.
-- Δεν χρειάζεται εγκατάσταση ή δύσκολος κώδικας ML — μόνο browser + micro:bit v2.
-- Συνδέει **Τεχνητή Νοημοσύνη** με **πραγματικό κόσμο** (ρομπότ, servos, πίστα βελακιών).
-- Αντικαθιστά **copy-paste JavaScript** με **blocks** — λιγότερα λάθη στην τάξη.
-
-**Σημαντικό:** τα ονόματα κλάσεων στο Train (π.χ. `left`, `right`, `nothing`) πρέπει να **ταιριάζουν ακριβώς** στα blocks MakeCode.
+**Workflow:** Train classes at [enorasiscore.eu](https://enorasiscore.eu) → Connect micro:bit → Test → blocks run on each recognised class.
 
 ---
 
-## Install (classroom)
+## Blocks reference
 
-1. Open [makecode.microbit.org](https://makecode.microbit.org/)
-2. **New Project** → ⚙️ **Extensions**
-3. Paste: `https://github.com/skinformatics/enorasisCore-makecode`
-4. Select **enorasis-core** → category **enorasisCore** appears
-5. **Download** `.hex` → flash micro:bit (USB)
+| Block | Description |
+|-------|-------------|
+| `start enorasisCore BLE` | Start UART service; ready icon on display. |
+| `on enorasisCore connected` | Runs when enorasisCore connects over Bluetooth. |
+| `on enorasisCore disconnected` | Runs when Bluetooth disconnects. |
+| `on enorasisCore class received` | Runs when **any** class label is received. |
+| `on enorasisCore class %className received` | Runs when a **specific** label is received. |
+| `last enorasisCore class` | Returns the last label (`string`). |
+| `enorasisCore class is %name` | Returns `true` if the last label equals `name`. |
 
-**macOS + Chrome:** ⚙️ Project Settings → **No Pairing Required** → **Save** → Download again.
-
-**Full workflow:** [enorasiscore.eu](https://enorasiscore.eu) → Train classes → Connect micro:bit → Test → watch blocks run.
+Block help pages: see the `docs/` folder (`start`, `last-class`, `on-class-received`, and others).
 
 ---
 
-## Blocks API
+## Examples
 
-| Block | What it does |
-|-------|----------------|
-| `start enorasisCore BLE` | Starts UART; micro:bit shows □ when ready for AI labels |
-| `on enorasisCore connected` | Browser linked (shows ✓) |
-| `on enorasisCore disconnected` | Link lost (shows ✗) |
-| `on enorasisCore class received` | Any new AI class label |
-| `on enorasisCore class … received` | Specific class only (e.g. `left`) |
-| `last enorasisCore class` | Last label (string) |
-| `enorasisCore class is …` | Compare last label |
+### Colours → servo
 
-### Example — vision → servo (colours)
+Train classes `red`, `green`, and `blue` in enorasisCore. Use the **same names** in MakeCode.
 
 ```blocks
 enorasisCore.start()
-enorasisCore.onClassReceived("kokkino", function () {
+enorasisCore.onClassReceived("red", function () {
     pins.servoWritePin(AnalogPin.P0, 0)
     basic.showIcon(IconNames.Heart)
 })
-enorasisCore.onClassReceived("prasino", function () {
+enorasisCore.onClassReceived("green", function () {
     pins.servoWritePin(AnalogPin.P0, 90)
 })
-enorasisCore.onClassReceived("mple", function () {
+enorasisCore.onClassReceived("blue", function () {
     pins.servoWritePin(AnalogPin.P0, 180)
 })
 ```
 
-### Example — arrows (tested in classroom)
+### Direction arrows (classroom tested)
+
+Train `left`, `right`, and `nothing`. Verified on BBC micro:bit v2 with enorasisCore BLE.
 
 ```blocks
 enorasisCore.start()
 enorasisCore.onClassReceived("left", function () {
     pins.servoWritePin(AnalogPin.P0, 0)
-    basic.showLeds(`
-        . . # . .
-        . # . . .
-        # # # # #
-        . # . . .
-        . . # . .
-    `)
+    basic.showArrow(ArrowNames.West)
 })
 enorasisCore.onClassReceived("right", function () {
     pins.servoWritePin(AnalogPin.P0, 180)
+    basic.showArrow(ArrowNames.East)
 })
 enorasisCore.onClassReceived("nothing", function () {
     pins.servoWritePin(AnalogPin.P0, 90)
 })
 ```
 
----
+### Any class with conditional
 
-## Technical notes
-
-| Topic | Detail |
-|-------|--------|
-| **Board** | BBC micro:bit **v2** (Web Bluetooth workflow) |
-| **Where ML runs** | Browser only ([enorasisCore](https://enorasiscore.eu)) |
-| **Protocol** | Nordic UART BLE; message = class name + `\n` |
-| **Browser** | Chrome / Edge with Web Bluetooth |
-| **Phase 2** | Motor-shield blocks (Keyestudio Robo1) — planned |
-
-Do **not** change the BLE protocol without updating the enorasisCore platform.
+```blocks
+enorasisCore.start()
+enorasisCore.onAnyClassReceived(function () {
+    if (enorasisCore.classIs("stop")) {
+        basic.showIcon(IconNames.No)
+    }
+})
+```
 
 ---
 
-## Repository files
+## Test suite (`test.ts`)
 
-| File | Purpose |
-|------|---------|
-| `enorasisCore.ts` | Block definitions |
-| `pxt.json` | Package metadata (short description for Extensions card) |
-| `icon.png` | 300×200 gallery icon |
-| `LICENSE.txt` | MIT |
-| `test.ts` | Approval / compile tests |
-| `_locales/` | Greek + English block labels |
+| Test | Pass criteria |
+|------|----------------|
+| `enorasisCore.start()` | Compiles; registers UART. |
+| `lastClass()` / `classIs("")` | Compiles at boot. |
+| All event handlers | Compile without simulator throw. |
+| BLE hardware | Test on device; not simulated. |
 
----
-
-## Links
-
-- **Platform:** [enorasiscore.eu](https://enorasiscore.eu)
-- **Staging:** [enorasiscore.etux4u.gr](https://enorasiscore.etux4u.gr)
-- **This extension (public):** [github.com/skinformatics/enorasisCore-makecode](https://github.com/skinformatics/enorasisCore-makecode)
-- **Platform source (private dev):** [cursor_enorasisCore](https://github.com/skinformatics/cursor_enorasisCore)
-
-MIT © 2026 skinformatics / enorasisCore
+Run by importing this extension in MakeCode (extension test project) or `pxt deploy` when building locally.
 
 ---
 
-## Publication guide — 14 steps (official MakeCode gallery)
+## Dependencies
 
-Follow these **in order** before students can search **“enorasis”** without pasting a URL.  
-Based on [MakeCode extension approval](https://makecode.microbit.org/extensions/approval) and [Micro:bit Foundation requirements](https://support.microbit.org/support/solutions/articles/19000054952-makecode-extension-approval).
-
-| Step | What you do | Status |
-|------|-------------|--------|
-| **1** | **Classroom test** — Train + Connect + Test on real micro:bit v2; document one working project (e.g. `left` / `right` / `nothing`). | ✅ Done |
-| **2** | **Public repo** — Code lives at [enorasisCore-makecode](https://github.com/skinformatics/enorasisCore-makecode) (root = extension, not subfolder). | ✅ Done |
-| **3** | **MIT license** — `LICENSE.txt` in repo root. | ✅ Done |
-| **4** | **Gallery icon** — `icon.png` exactly **300×200 px**, **&lt; 100 KB**. | ✅ Done |
-| **5** | **Tests** — `test.ts` covers all blocks; compiles in MakeCode; no simulator errors for BLE-only logic. | ✅ Done |
-| **6** | **README** — API table + ` ```blocks ` examples (not screenshots only); link to [enorasiscore.eu](https://enorasiscore.eu). | ✅ This file |
-| **7** | **pxt.json** — Every file in `"files"` exists in repo; version semver (`0.1.x`). | ✅ Check on release |
-| **8** | **GitHub repo description** — Short text, e.g. *“Human vision for micro:bit — browser ML + BLE class labels (enorasisCore)”*. Set on GitHub → Settings or repo About. | ⏳ You |
-| **9** | **GitHub Release** — Create release tag **`v0.1.2`** (or current version) on [Releases](https://github.com/skinformatics/enorasisCore-makecode/releases); attach notes (vision + BLE + v2). | ⏳ You |
-| **10** | **English-first** — Blocks and README primarily in English (`_locales/el` optional). Naming follows [MakeCode conventions](https://makecode.com/extensions/naming-conventions). | ✅ Done |
-| **11** | **Product context** — In approval form, explain: educational **software + micro:bit v2**, not a physical accessory; aligns with CS/AI in schools. Link Hackster/tutorials if available. | ⏳ You |
-| **12** | **micro:bit Slack** (recommended) — Join [micro:bit Slack](https://slack.microbit.org/) → channels `#makecode` and `#makecode-pkg-owners`; introduce your extension. | ⏳ Optional |
-| **13** | **Submit approval form** — [MakeCode for micro:bit Extension Approval Form](https://form.jotform.com/90075019358357). Paste repo URL, release tag, describe AI/vision use case for students. | ⏳ You |
-| **14** | **After approval** — Foundation opens PR to [pxt-microbit targetconfig.json](https://github.com/Microsoft/pxt-microbit/blob/master/targetconfig.json); then search **“enorasis”** in Extensions shows your card with icon; “User-provided / not endorsed” disclaimer removed. | ⏳ Wait |
-
-### Step 9 detail — create GitHub Release (example)
-
-1. Open https://github.com/skinformatics/enorasisCore-makecode/releases  
-2. **Draft a new release**  
-3. Tag: `v0.1.2` → target `main`  
-4. Title: `v0.1.2 — Human vision for micro:bit (BLE)`  
-5. Description: link enorasiscore.eu, note classroom-tested, micro:bit v2  
-6. **Publish release**
-
-### Step 13 detail — what to write in the form
-
-- **Extension URL:** `https://github.com/skinformatics/enorasisCore-makecode`  
-- **Release:** `v0.1.2`  
-- **Purpose:** Students train image classes in the browser (ML); micro:bit receives labels over BLE and drives robotics — **vision for the micro:bit** without on-device neural networks.  
-- **Hardware:** BBC micro:bit v2 + camera (phone/PC); optional servos/motors.  
-- **Education:** STEM, AI literacy, no-install browser ML.
+- `core` (micro:bit)
+- `bluetooth` (UART service — included automatically)
 
 ---
+
+## Author
+
+[skinformatics](https://enorasiscore.eu) — enorasisCore browser machine learning platform.
+
+MIT License. See [LICENSE.txt](LICENSE.txt).
 
 ```package
 enorasis-core=github:skinformatics/enorasisCore-makecode
+```
+
+```text
+for PXT/microbit
 ```

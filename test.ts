@@ -1,27 +1,31 @@
-// enorasisCore extension — approval test suite
-// Pass: project compiles; simulator runs without throw.
-// Hardware BLE is not simulated — blocks register handlers only.
+// enorasis-core extension test suite
+// See README.md "Test suite" for pass/fail criteria.
+// BLE is not simulated; tests verify compile-time registration only.
 
-// 1. Start BLE service
 enorasisCore.start()
 
-// 2. Last class empty at boot
-let emptyOk = enorasisCore.classIs("")
+let bootLabel = enorasisCore.lastClass()
+let bootEmpty = enorasisCore.classIs("")
 
-// 3. Register any-class handler
 enorasisCore.onAnyClassReceived(function () {
     let label = enorasisCore.lastClass()
+    if (enorasisCore.classIs("left")) {
+        basic.showArrow(ArrowNames.West)
+    }
 })
 
-// 4. Register named-class handler
-enorasisCore.onClassReceived("left", function () {
-    basic.showIcon(IconNames.ArrowWest)
+enorasisCore.onClassReceived("right", function () {
+    basic.showArrow(ArrowNames.East)
 })
 
-// 5. Connection handlers
+enorasisCore.onClassReceived("nothing", function () {
+    basic.showIcon(IconNames.Square)
+})
+
 enorasisCore.onConnected(function () {
     basic.showIcon(IconNames.Yes)
 })
+
 enorasisCore.onDisconnected(function () {
     basic.showIcon(IconNames.No)
 })

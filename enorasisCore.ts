@@ -63,6 +63,7 @@ namespace enorasisCore {
     //% blockId=enorasis_class_is block="enorasisCore class is %name"
     //% name.defl=""
     //% weight=79
+    //% help=enorasisCore/class-is
     export function classIs(name: string): boolean {
         return _lastClass == name
     }
@@ -99,6 +100,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_connected block="on enorasisCore connected"
     //% weight=70 blockGap=8
     //% draggable=false blockAllowMultiple=false
+    //% help=enorasisCore/on-connected
     export function onConnected(handler: () => void): void {
         bluetooth.onBluetoothConnected(function () {
             basic.showIcon(IconNames.Yes)
@@ -112,6 +114,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_disconnected block="on enorasisCore disconnected"
     //% weight=69 blockGap=8
     //% draggable=false blockAllowMultiple=false
+    //% help=enorasisCore/on-disconnected
     export function onDisconnected(handler: () => void): void {
         bluetooth.onBluetoothDisconnected(function () {
             basic.showIcon(IconNames.No)
