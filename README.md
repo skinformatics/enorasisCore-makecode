@@ -10,7 +10,7 @@ Train image classes in [enorasisCore](https://enorasiscore.eu) (no install). Whe
 |---|---|
 | **Product** | [enorasiscore.eu](https://enorasiscore.eu) |
 | **License** | [MIT](LICENSE.txt) |
-| **Board** | BBC micro:bit **v2** |
+| **Board** | BBC micro:bit **V2** |
 | **Install** | `https://github.com/skinformatics/enorasisCore-makecode` |
 
 ---
