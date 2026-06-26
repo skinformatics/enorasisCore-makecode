@@ -1,20 +1,15 @@
 {
     "name": "enorasis-core",
-    "version": "0.1.3",
-    "description": "Human vision for micro:bit v2: browser machine learning sends class labels over BLE to MakeCode blocks.",
+    "version": "0.1.4",
+    "description": "Human vision for micro:bit V2 only: browser machine learning sends class labels over Bluetooth to your blocks.",
     "license": "MIT",
-    "icon": "./icon.png",
     "dependencies": {
         "core": "*",
         "bluetooth": "*"
     },
     "files": [
         "README.md",
-        "APPROVAL-CHECKLIST.md",
-        "LICENSE.txt",
-        "icon.png",
         "enorasisCore.ts",
-        "test.ts",
         "docs/start.md",
         "docs/last-class.md",
         "docs/class-is.md",
@@ -25,9 +20,15 @@
         "_locales/en/enorasis-core-strings.json",
         "_locales/el/enorasis-core-strings.json"
     ],
+    "testFiles": [
+        "test.ts"
+    ],
     "public": true,
     "supportedTargets": [
         "microbit"
+    ],
+    "disablesVariants": [
+        "mbdal"
     ],
     "preferredEditor": "blocksprj",
     "yotta": {

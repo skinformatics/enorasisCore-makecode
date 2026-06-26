@@ -40,7 +40,7 @@ namespace enorasisCore {
      */
     //% blockId=enorasis_start block="start enorasisCore BLE"
     //% weight=100 blockGap=8
-    //% help=enorasisCore/start
+    //% help=enorasis-core/start
     export function start(): void {
         bluetooth.startUartService()
         ensureUartListener()
@@ -52,18 +52,19 @@ namespace enorasisCore {
      */
     //% blockId=enorasis_last_class block="last enorasisCore class"
     //% weight=80
-    //% help=enorasisCore/last-class
+    //% help=enorasis-core/last-class
     export function lastClass(): string {
         return _lastClass
     }
 
     /**
-     * True when the last received class equals the given name.
+     * Returns true when the last class label received from enorasisCore equals the given name.
+     * @param name the class label to compare against, eg: "left"
      */
     //% blockId=enorasis_class_is block="enorasisCore class is %name"
     //% name.defl=""
     //% weight=79
-    //% help=enorasisCore/class-is
+    //% help=enorasis-core/class-is
     export function classIs(name: string): boolean {
         return _lastClass == name
     }
@@ -74,20 +75,22 @@ namespace enorasisCore {
     //% blockId=enorasis_on_any_class block="on enorasisCore class received"
     //% weight=90 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasisCore/on-class-received
+    //% help=enorasis-core/on-class-received
     export function onAnyClassReceived(handler: () => void): void {
         ensureUartListener()
         _anyClassHandlers.push(handler)
     }
 
     /**
-     * Run when the AI sends this exact class name (must match Train in enorasisCore).
+     * Run code when enorasisCore sends this exact class label.
+     * The label must match the class name you trained in enorasisCore (same spelling and case).
+     * @param className the exact class label to listen for, eg: "left"
      */
     //% blockId=enorasis_on_class block="on enorasisCore class %className received"
     //% className.defl=""
     //% weight=89 blockGap=8
     //% draggable=false
-    //% help=enorasisCore/on-class-name-received
+    //% help=enorasis-core/on-class-name-received
     export function onClassReceived(className: string, handler: () => void): void {
         ensureUartListener()
         let entry: ClassHandler = { name: className, handler: handler }
@@ -100,7 +103,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_connected block="on enorasisCore connected"
     //% weight=70 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasisCore/on-connected
+    //% help=enorasis-core/on-connected
     export function onConnected(handler: () => void): void {
         bluetooth.onBluetoothConnected(function () {
             basic.showIcon(IconNames.Yes)
@@ -114,7 +117,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_disconnected block="on enorasisCore disconnected"
     //% weight=69 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasisCore/on-disconnected
+    //% help=enorasis-core/on-disconnected
     export function onDisconnected(handler: () => void): void {
         bluetooth.onBluetoothDisconnected(function () {
             basic.showIcon(IconNames.No)

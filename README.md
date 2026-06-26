@@ -2,7 +2,9 @@
 
 ![enorasisCore extension icon — machine learning vision for micro:bit](icon.png)
 
-**Human vision for the BBC micro:bit v2.** Connect browser-based machine learning to your MakeCode projects.
+**Human vision for the BBC micro:bit V2.** Connect browser-based machine learning to your MakeCode projects.
+
+> **This extension requires the micro:bit V2 hardware.** It uses Bluetooth, which is only available on micro:bit V2. On a micro:bit V1 the program will display the **927** error code.
 
 Train image classes in [enorasisCore](https://enorasiscore.eu) (no install). When the AI recognises what the camera sees, it sends a **class label** over Bluetooth to your micro:bit. Your blocks turn that label into action — servos, motors, LEDs, and logic.
 
@@ -10,7 +12,7 @@ Train image classes in [enorasisCore](https://enorasiscore.eu) (no install). Whe
 |---|---|
 | **Product** | [enorasiscore.eu](https://enorasiscore.eu) |
 | **License** | [MIT](LICENSE.txt) |
-| **Board** | BBC micro:bit **V2** |
+| **Board** | BBC micro:bit **V2** only |
 | **Install** | `https://github.com/skinformatics/enorasisCore-makecode` |
 
 ---
@@ -33,7 +35,7 @@ This pattern matches many real systems: smart sensing on a capable device, contr
 ## How it works
 
 ```
-  Camera          enorasisCore (browser ML)       micro:bit v2
+  Camera          enorasisCore (browser ML)       micro:bit V2
  ┌────────┐       ┌─────────────────────┐        ┌──────────────┐
  │ image  │ Train │ classify → label    │  BLE   │ your blocks  │
  │ input  │ Test  │ e.g. "left", "red"  │ ─────► │ servo, LED…  │
@@ -97,7 +99,7 @@ enorasisCore.onClassReceived("blue", function () {
 
 ### Direction arrows (classroom tested)
 
-Train `left`, `right`, and `nothing`. Verified on BBC micro:bit v2 with enorasisCore BLE.
+Train `left`, `right`, and `nothing`. Verified on BBC micro:bit V2 with enorasisCore BLE.
 
 ```blocks
 enorasisCore.start()
@@ -124,19 +126,6 @@ enorasisCore.onAnyClassReceived(function () {
     }
 })
 ```
-
----
-
-## Test suite (`test.ts`)
-
-| Test | Pass criteria |
-|------|----------------|
-| `enorasisCore.start()` | Compiles; registers UART. |
-| `lastClass()` / `classIs("")` | Compiles at boot. |
-| All event handlers | Compile without simulator throw. |
-| BLE hardware | Test on device; not simulated. |
-
-Run by importing this extension in MakeCode (extension test project) or `pxt deploy` when building locally.
 
 ---
 

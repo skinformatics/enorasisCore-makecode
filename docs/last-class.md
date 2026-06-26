@@ -1,5 +1,9 @@
 # last-class
 
+```package
+enorasis-core=github:skinformatics/enorasisCore-makecode
+```
+
 Returns the **most recently received class label** (text string) from enorasisCore.
 
 Example values: `left`, `right`, `red`, `go`, `stop` — whatever names you used when training in the browser.

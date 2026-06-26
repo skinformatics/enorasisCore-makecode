@@ -1,5 +1,9 @@
 # on-disconnected
 
+```package
+enorasis-core=github:skinformatics/enorasisCore-makecode
+```
+
 Runs when the Bluetooth connection from enorasisCore is lost.
 
 The micro:bit shows an X icon when disconnected.

@@ -1,5 +1,9 @@
 # class-is
 
+```package
+enorasis-core=github:skinformatics/enorasisCore-makecode
+```
+
 Returns `true` when the last received class label **equals** the given name.
 
 The name must match your enorasisCore training label **exactly** (same spelling and case).
