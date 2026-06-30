@@ -40,7 +40,7 @@ namespace enorasisCore {
      */
     //% blockId=enorasis_start block="start enorasisCore BLE"
     //% weight=100 blockGap=8
-    //% help=enorasis-core/start
+    //% help=enorasis-core/docs/start
     export function start(): void {
         bluetooth.startUartService()
         ensureUartListener()
@@ -52,7 +52,7 @@ namespace enorasisCore {
      */
     //% blockId=enorasis_last_class block="last enorasisCore class"
     //% weight=80
-    //% help=enorasis-core/last-class
+    //% help=enorasis-core/docs/last-class
     export function lastClass(): string {
         return _lastClass
     }
@@ -64,7 +64,7 @@ namespace enorasisCore {
     //% blockId=enorasis_class_is block="enorasisCore class is %name"
     //% name.defl=""
     //% weight=79
-    //% help=enorasis-core/class-is
+    //% help=enorasis-core/docs/class-is
     export function classIs(name: string): boolean {
         return _lastClass == name
     }
@@ -75,7 +75,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_any_class block="on enorasisCore class received"
     //% weight=90 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasis-core/on-class-received
+    //% help=enorasis-core/docs/on-class-received
     export function onAnyClassReceived(handler: () => void): void {
         ensureUartListener()
         _anyClassHandlers.push(handler)
@@ -90,7 +90,7 @@ namespace enorasisCore {
     //% className.defl=""
     //% weight=89 blockGap=8
     //% draggable=false
-    //% help=enorasis-core/on-class-name-received
+    //% help=enorasis-core/docs/on-class-name-received
     export function onClassReceived(className: string, handler: () => void): void {
         ensureUartListener()
         let entry: ClassHandler = { name: className, handler: handler }
@@ -103,7 +103,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_connected block="on enorasisCore connected"
     //% weight=70 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasis-core/on-connected
+    //% help=enorasis-core/docs/on-connected
     export function onConnected(handler: () => void): void {
         bluetooth.onBluetoothConnected(function () {
             basic.showIcon(IconNames.Yes)
@@ -117,7 +117,7 @@ namespace enorasisCore {
     //% blockId=enorasis_on_disconnected block="on enorasisCore disconnected"
     //% weight=69 blockGap=8
     //% draggable=false blockAllowMultiple=false
-    //% help=enorasis-core/on-disconnected
+    //% help=enorasis-core/docs/on-disconnected
     export function onDisconnected(handler: () => void): void {
         bluetooth.onBluetoothDisconnected(function () {
             basic.showIcon(IconNames.No)

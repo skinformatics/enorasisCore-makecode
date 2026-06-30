@@ -1,10 +1,10 @@
 # enorasis-core
 
-![enorasisCore extension icon — machine learning vision for micro:bit](icon.png)
+![enorasisCore extension icon — machine learning vision for micro:bit V2](https://raw.githubusercontent.com/skinformatics/enorasisCore-makecode/v0.1.5/icon.png)
 
 **Human vision for the BBC micro:bit V2.** Connect browser-based machine learning to your MakeCode projects.
 
-> **This extension requires the micro:bit V2 hardware.** It uses Bluetooth, which is only available on micro:bit V2. On a micro:bit V1 the program will display the **927** error code.
+> **This extension requires the micro:bit V2 hardware.** micro:bit V2 has more RAM available for user programs when Bluetooth is enabled. On a micro:bit V1 the program will display the **927** error code.
 
 Train image classes in [enorasisCore](https://enorasiscore.eu) (no install). When the AI recognises what the camera sees, it sends a **class label** over Bluetooth to your micro:bit. Your blocks turn that label into action — servos, motors, LEDs, and logic.
 
@@ -138,7 +138,7 @@ enorasisCore.onAnyClassReceived(function () {
 
 ## Author
 
-[sk.informatics](https://enorasiscore.eu) — enorasisCore browser machine learning platform.
+[skinformatics](https://enorasiscore.eu) — enorasisCore browser machine learning platform.
 
 MIT License. See [LICENSE.txt](LICENSE.txt).
 

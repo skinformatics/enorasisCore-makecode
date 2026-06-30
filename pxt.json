@@ -1,6 +1,6 @@
 {
     "name": "enorasis-core",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Human vision for micro:bit V2 only: browser machine learning sends class labels over Bluetooth to your blocks.",
     "license": "MIT",
     "dependencies": {
