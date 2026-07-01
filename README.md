@@ -1,6 +1,6 @@
 # enorasis-core
 
-![enorasisCore extension icon — machine learning vision for micro:bit V2](https://raw.githubusercontent.com/skinformatics/enorasisCore-makecode/v0.1.5/icon.png)
+![enorasisCore extension icon — machine learning vision for micro:bit V2](https://raw.githubusercontent.com/skinformatics/enorasisCore-makecode/v0.1.6/icon.png)
 
 **Human vision for the BBC micro:bit V2.** Connect browser-based machine learning to your MakeCode projects.
 
