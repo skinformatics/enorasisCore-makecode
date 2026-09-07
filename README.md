@@ -138,7 +138,7 @@ enorasisCore.onAnyClassReceived(function () {
 
 ## Author
 
-[skinformatics](https://enorasiscore.eu) — enorasisCore browser machine learning platform.
+[Athanasios Kountourgiotis](https://enorasiscore.eu) — enorasisCore browser machine learning platform.
 
 MIT License. See [LICENSE.txt](LICENSE.txt).
 
