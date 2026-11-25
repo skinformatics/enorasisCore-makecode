@@ -1,6 +1,6 @@
 {
     "name": "enorasis-core",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "Human vision for micro:bit V2 only: browser machine learning sends class labels over Bluetooth or the USB cable to your blocks.",
     "license": "MIT",
     "dependencies": {
@@ -11,20 +11,31 @@
         "README.md",
         "enorasisCore.ts",
         "docs/start.md",
+        "docs/send.md",
+        "docs/connection.md",
+        "docs/is-connected.md",
         "docs/last-class.md",
         "docs/class-is.md",
         "docs/on-class-received.md",
         "docs/on-class-name-received.md",
         "docs/on-connected.md",
         "docs/on-disconnected.md",
-        "_locales/en/enorasis-core-strings.json",
+        "_locales/enorasis-core-strings.json",
+        "_locales/enorasis-core-jsdoc-strings.json",
         "_locales/el/enorasis-core-strings.json",
+        "_locales/el/enorasis-core-jsdoc-strings.json",
         "_locales/de/enorasis-core-strings.json",
+        "_locales/de/enorasis-core-jsdoc-strings.json",
         "_locales/fr/enorasis-core-strings.json",
+        "_locales/fr/enorasis-core-jsdoc-strings.json",
         "_locales/es-ES/enorasis-core-strings.json",
+        "_locales/es-ES/enorasis-core-jsdoc-strings.json",
         "_locales/it/enorasis-core-strings.json",
+        "_locales/it/enorasis-core-jsdoc-strings.json",
         "_locales/pt-BR/enorasis-core-strings.json",
-        "_locales/nl/enorasis-core-strings.json"
+        "_locales/pt-BR/enorasis-core-jsdoc-strings.json",
+        "_locales/nl/enorasis-core-strings.json",
+        "_locales/nl/enorasis-core-jsdoc-strings.json"
     ],
     "testFiles": [
         "test.ts"
@@ -41,7 +52,10 @@
         "config": {
             "microbit-dal": {
                 "bluetooth": {
-                    "enabled": 1
+                    "enabled": 1,
+                    "open": 1,
+                    "whitelist": 0,
+                    "security_level": null
                 }
             }
         }

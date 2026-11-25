@@ -1,9 +1,20 @@
 {
-    "enorasisCore.start": "avvia enorasisCore",
-    "enorasisCore.lastClass": "ultima classe enorasisCore",
-    "enorasisCore.classIs": "la classe enorasisCore è %name",
-    "enorasisCore.onAnyClassReceived": "quando ricevo una classe enorasisCore",
-    "enorasisCore.onClassReceived": "quando ricevo la classe %className da enorasisCore",
-    "enorasisCore.onConnected": "quando enorasisCore si connette",
-    "enorasisCore.onDisconnected": "quando enorasisCore si disconnette"
+  "EnorasisLink.BluetoothAndUsb|block": "Bluetooth e USB",
+  "EnorasisLink.BluetoothOnly|block": "solo Bluetooth",
+  "EnorasisLink.UsbOnly|block": "solo cavo USB",
+  "enorasisCore.classIs|block": "la classe enorasisCore è %name",
+  "enorasisCore.connection|block": "tipo di connessione enorasisCore",
+  "enorasisCore.isConnected|block": "enorasisCore è connesso",
+  "enorasisCore.lastClass|block": "ultima classe enorasisCore",
+  "enorasisCore.onAnyClassReceived|block": "quando ricevo una classe enorasisCore",
+  "enorasisCore.onClassReceived|block": "quando ricevo la classe %className da enorasisCore",
+  "enorasisCore.onConnected|block": "quando enorasisCore si connette",
+  "enorasisCore.onDisconnected|block": "quando enorasisCore si disconnette",
+  "enorasisCore.send|block": "invia a enorasisCore %text",
+  "enorasisCore.startWith|block": "avvia enorasisCore tramite %link",
+  "enorasisCore.start|block": "avvia enorasisCore",
+  "{id:group}Classes": "Classi",
+  "{id:group}Connection": "Connessione",
+  "{id:group}Send": "Invio",
+  "{id:group}Start": "Avvio"
 }

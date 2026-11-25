@@ -1,0 +1,19 @@
+{
+  "EnorasisLink": "Hoe enorasisCore verbinding maakt met de micro:bit.",
+  "enorasisCore": "enorasisCore: verbindt de micro:bit met machine learning in de browser (enorasiscore.eu). Het model draait in de browser en de micro:bit ontvangt de klassen via Bluetooth of de USB-kabel.",
+  "enorasisCore.classIs": "Waar wanneer de laatste klasse van enorasisCore gelijk is aan deze naam.",
+  "enorasisCore.classIs|param|name": "de klassenaam om mee te vergelijken, bijv. \"left\"",
+  "enorasisCore.connection": "Hoe enorasisCore nu verbonden is: \"Bluetooth\", \"USB\" of leeg als er geen verbinding is.",
+  "enorasisCore.isConnected": "Waar zolang enorasisCore verbonden is, via Bluetooth of de USB-kabel.",
+  "enorasisCore.lastClass": "De laatste klasse die enorasisCore heeft gestuurd (bijv. left, red, go).",
+  "enorasisCore.onAnyClassReceived": "Wordt uitgevoerd wanneer enorasisCore een willekeurige klasse herkent.",
+  "enorasisCore.onClassReceived": "Wordt uitgevoerd wanneer enorasisCore precies deze klasse stuurt. De naam moet precies zo geschreven zijn als de getrainde klasse (ook hoofdletters en kleine letters).",
+  "enorasisCore.onClassReceived|param|className": "de exacte klassenaam, bijv. \"left\"",
+  "enorasisCore.onConnected": "Wordt uitgevoerd wanneer enorasisCore verbindt, via Bluetooth of de USB-kabel.",
+  "enorasisCore.onDisconnected": "Wordt uitgevoerd wanneer de verbinding met enorasisCore eindigt, via Bluetooth of de USB-kabel.",
+  "enorasisCore.send": "Stuurt een kort bericht van de micro:bit naar enorasisCore via de verbinding die in gebruik is. De leeromgeving toont het in de bordkaart.",
+  "enorasisCore.send|param|text": "het bericht, bijv. \"A pressed\"",
+  "enorasisCore.start": "Start enorasisCore via Bluetooth en de USB-kabel. Blijft bestaan zodat projecten uit oudere versies blijven werken.",
+  "enorasisCore.startWith": "Start enorasisCore zodat de browser klassen naar de micro:bit kan sturen. Kies Bluetooth, de USB-kabel of beide.",
+  "enorasisCore.startWith|param|link": "hoe enorasisCore verbindt: Bluetooth, USB-kabel of beide"
+}

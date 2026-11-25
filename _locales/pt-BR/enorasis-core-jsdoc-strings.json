@@ -1,0 +1,19 @@
+{
+  "EnorasisLink": "Como o enorasisCore se conecta ao micro:bit.",
+  "enorasisCore": "enorasisCore: conecta o micro:bit ao aprendizado de máquina no navegador (enorasiscore.eu). O modelo roda no navegador e o micro:bit recebe as classes por Bluetooth ou pelo cabo USB.",
+  "enorasisCore.classIs": "Verdadeiro quando a última classe recebida do enorasisCore é igual a este nome.",
+  "enorasisCore.classIs|param|name": "o nome da classe para comparar, por ex. \"left\"",
+  "enorasisCore.connection": "Como o enorasisCore está conectado agora: \"Bluetooth\", \"USB\" ou vazio quando não está conectado.",
+  "enorasisCore.isConnected": "Verdadeiro enquanto o enorasisCore está conectado, por Bluetooth ou pelo cabo USB.",
+  "enorasisCore.lastClass": "A última classe enviada pelo enorasisCore (por ex. left, red, go).",
+  "enorasisCore.onAnyClassReceived": "Executa quando o enorasisCore reconhece qualquer classe.",
+  "enorasisCore.onClassReceived": "Executa quando o enorasisCore envia exatamente esta classe. O nome deve ser escrito igual à classe treinada (mesmas letras, maiúsculas e minúsculas).",
+  "enorasisCore.onClassReceived|param|className": "o nome exato da classe, por ex. \"left\"",
+  "enorasisCore.onConnected": "Executa quando o enorasisCore se conecta, por Bluetooth ou pelo cabo USB.",
+  "enorasisCore.onDisconnected": "Executa quando a conexão com o enorasisCore termina, por Bluetooth ou pelo cabo USB.",
+  "enorasisCore.send": "Envia uma mensagem curta do micro:bit para o enorasisCore pela conexão em uso. O ambiente de aprendizagem a mostra no cartão da placa.",
+  "enorasisCore.send|param|text": "a mensagem, por ex. \"A pressed\"",
+  "enorasisCore.start": "Inicia o enorasisCore por Bluetooth e pelo cabo USB. Mantido para que projetos de versões anteriores continuem funcionando.",
+  "enorasisCore.startWith": "Inicia o enorasisCore para que o navegador envie classes ao micro:bit. Escolha Bluetooth, o cabo USB ou ambos.",
+  "enorasisCore.startWith|param|link": "como o enorasisCore se conecta: Bluetooth, cabo USB ou ambos"
+}

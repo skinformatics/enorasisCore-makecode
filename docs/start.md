@@ -1,15 +1,43 @@
-# start
+# start enorasisCore
+
+Start receiving **machine learning class labels** from [enorasisCore](https://enorasiscore.eu) in the browser.
+
+```sig
+enorasisCore.startWith(EnorasisLink.BluetoothAndUsb)
+```
+
+Place this block once, at the beginning of your program (for example in **on start**). The micro:bit shows a square icon when it is ready.
+
+## Parameters
+
+* **link**: how enorasisCore connects to the micro:bit.
+  * **Bluetooth and USB** (default): the micro:bit listens on both, so you can choose in enorasisCore.
+  * **Bluetooth only**: for phones, tablets and computers with working Bluetooth.
+  * **USB cable only**: for computers where Bluetooth does not work with the browser.
+
+No Pairing Required is set automatically by the extension, so there is nothing to change in Project Settings.
+
+## Requirements
+
+BBC micro:bit **V2**, and enorasisCore open in Chrome or Edge. The USB cable works in Chrome or Edge on a computer.
+
+## Projects from older versions
+
+Before version 0.1.8 this block was called **start enorasisCore**, without a choice. Projects that use it keep working: it listens over Bluetooth and the USB cable.
+
+## Example
+
+```blocks
+enorasisCore.startWith(EnorasisLink.BluetoothAndUsb)
+enorasisCore.onClassReceived("left", function () {
+    basic.showArrow(ArrowNames.West)
+})
+```
+
+## See also
+
+**on enorasisCore class received**, **on enorasisCore connected**
 
 ```package
 enorasis-core=github:skinformatics/enorasisCore-makecode
-```
-
-Starts receiving **machine learning class labels** from [enorasisCore](https://enorasiscore.eu) in the browser, over **Bluetooth** or over the **USB cable** (USB from version 0.1.7).
-
-Place this block once at the beginning of your program (for example inside `on start`). The micro:bit displays a square icon when it is ready to receive labels.
-
-**Requires:** BBC micro:bit **V2**, enorasisCore open in Chrome or Edge, and a flashed `.hex` from this project.
-
-```blocks
-enorasisCore.start()
 ```

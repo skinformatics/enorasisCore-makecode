@@ -1,9 +1,20 @@
 {
-    "enorasisCore.start": "start enorasisCore",
-    "enorasisCore.lastClass": "laatste enorasisCore-klasse",
-    "enorasisCore.classIs": "enorasisCore-klasse is %name",
-    "enorasisCore.onAnyClassReceived": "wanneer enorasisCore-klasse ontvangen",
-    "enorasisCore.onClassReceived": "wanneer enorasisCore-klasse %className ontvangen",
-    "enorasisCore.onConnected": "wanneer enorasisCore verbonden",
-    "enorasisCore.onDisconnected": "wanneer enorasisCore verbroken"
+  "EnorasisLink.BluetoothAndUsb|block": "Bluetooth en USB",
+  "EnorasisLink.BluetoothOnly|block": "alleen Bluetooth",
+  "EnorasisLink.UsbOnly|block": "alleen USB-kabel",
+  "enorasisCore.classIs|block": "enorasisCore-klasse is %name",
+  "enorasisCore.connection|block": "enorasisCore-verbindingstype",
+  "enorasisCore.isConnected|block": "enorasisCore is verbonden",
+  "enorasisCore.lastClass|block": "laatste enorasisCore-klasse",
+  "enorasisCore.onAnyClassReceived|block": "wanneer enorasisCore-klasse ontvangen",
+  "enorasisCore.onClassReceived|block": "wanneer enorasisCore-klasse %className ontvangen",
+  "enorasisCore.onConnected|block": "wanneer enorasisCore verbonden",
+  "enorasisCore.onDisconnected|block": "wanneer enorasisCore verbroken",
+  "enorasisCore.send|block": "stuur naar enorasisCore %text",
+  "enorasisCore.startWith|block": "start enorasisCore via %link",
+  "enorasisCore.start|block": "start enorasisCore",
+  "{id:group}Classes": "Klassen",
+  "{id:group}Connection": "Verbinding",
+  "{id:group}Send": "Versturen",
+  "{id:group}Start": "Start"
 }

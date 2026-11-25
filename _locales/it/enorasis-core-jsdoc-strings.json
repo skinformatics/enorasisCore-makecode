@@ -1,0 +1,19 @@
+{
+  "EnorasisLink": "Come enorasisCore si collega al micro:bit.",
+  "enorasisCore": "enorasisCore: collega il micro:bit all'apprendimento automatico nel browser (enorasiscore.eu). Il modello funziona nel browser e il micro:bit riceve le classi tramite Bluetooth o cavo USB.",
+  "enorasisCore.classIs": "Vero quando l'ultima classe ricevuta da enorasisCore corrisponde a questo nome.",
+  "enorasisCore.classIs|param|name": "il nome della classe da confrontare, ad es. \"left\"",
+  "enorasisCore.connection": "Come è connesso ora enorasisCore: \"Bluetooth\", \"USB\" oppure vuoto se non è connesso.",
+  "enorasisCore.isConnected": "Vero finché enorasisCore è connesso, tramite Bluetooth o cavo USB.",
+  "enorasisCore.lastClass": "L'ultima classe inviata da enorasisCore (ad es. left, red, go).",
+  "enorasisCore.onAnyClassReceived": "Viene eseguito quando enorasisCore riconosce una qualsiasi classe.",
+  "enorasisCore.onClassReceived": "Viene eseguito quando enorasisCore invia esattamente questa classe. Il nome deve essere scritto come la classe addestrata (stesse lettere, maiuscole e minuscole).",
+  "enorasisCore.onClassReceived|param|className": "il nome esatto della classe, ad es. \"left\"",
+  "enorasisCore.onConnected": "Viene eseguito quando enorasisCore si connette, tramite Bluetooth o cavo USB.",
+  "enorasisCore.onDisconnected": "Viene eseguito quando la connessione con enorasisCore termina, tramite Bluetooth o cavo USB.",
+  "enorasisCore.send": "Invia un breve messaggio dal micro:bit a enorasisCore tramite la connessione in uso. L'ambiente di apprendimento lo mostra nella scheda della board.",
+  "enorasisCore.send|param|text": "il messaggio, ad es. \"A pressed\"",
+  "enorasisCore.start": "Avvia enorasisCore tramite Bluetooth e cavo USB. Resta disponibile perché i progetti delle versioni precedenti continuino a funzionare.",
+  "enorasisCore.startWith": "Avvia enorasisCore perché il browser invii classi al micro:bit. Scegli Bluetooth, il cavo USB o entrambi.",
+  "enorasisCore.startWith|param|link": "come si collega enorasisCore: Bluetooth, cavo USB o entrambi"
+}

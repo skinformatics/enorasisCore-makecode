@@ -1,0 +1,19 @@
+{
+  "EnorasisLink": "Cómo se conecta enorasisCore con la micro:bit.",
+  "enorasisCore": "enorasisCore: conecta la micro:bit con el aprendizaje automático en el navegador (enorasiscore.eu). El modelo se ejecuta en el navegador y la micro:bit recibe las clases por Bluetooth o por el cable USB.",
+  "enorasisCore.classIs": "Verdadero cuando la última clase recibida de enorasisCore coincide con este nombre.",
+  "enorasisCore.classIs|param|name": "el nombre de la clase para comparar, p. ej. \"left\"",
+  "enorasisCore.connection": "Cómo está conectado ahora enorasisCore: \"Bluetooth\", \"USB\" o vacío si no está conectado.",
+  "enorasisCore.isConnected": "Verdadero mientras enorasisCore está conectado, por Bluetooth o por el cable USB.",
+  "enorasisCore.lastClass": "La última clase enviada por enorasisCore (p. ej. left, red, go).",
+  "enorasisCore.onAnyClassReceived": "Se ejecuta cuando enorasisCore reconoce cualquier clase.",
+  "enorasisCore.onClassReceived": "Se ejecuta cuando enorasisCore envía exactamente esta clase. El nombre debe escribirse igual que la clase entrenada (mismas letras, mayúsculas y minúsculas).",
+  "enorasisCore.onClassReceived|param|className": "el nombre exacto de la clase, p. ej. \"left\"",
+  "enorasisCore.onConnected": "Se ejecuta cuando enorasisCore se conecta, por Bluetooth o por el cable USB.",
+  "enorasisCore.onDisconnected": "Se ejecuta cuando termina la conexión con enorasisCore, por Bluetooth o por el cable USB.",
+  "enorasisCore.send": "Envía un mensaje corto de la micro:bit a enorasisCore por la conexión en uso. El entorno de aprendizaje lo muestra en la tarjeta de la placa.",
+  "enorasisCore.send|param|text": "el mensaje, p. ej. \"A pressed\"",
+  "enorasisCore.start": "Inicia enorasisCore por Bluetooth y por el cable USB. Se mantiene para que los proyectos de versiones anteriores sigan funcionando.",
+  "enorasisCore.startWith": "Inicia enorasisCore para que el navegador envíe clases a la micro:bit. Elige Bluetooth, el cable USB o ambos.",
+  "enorasisCore.startWith|param|link": "cómo se conecta enorasisCore: Bluetooth, cable USB o ambos"
+}

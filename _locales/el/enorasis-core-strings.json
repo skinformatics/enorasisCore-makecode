@@ -1,9 +1,20 @@
 {
-    "enorasisCore.start": "έναρξη enorasisCore",
-    "enorasisCore.lastClass": "τελευταία κλάση enorasisCore",
-    "enorasisCore.classIs": "κλάση enorasisCore είναι %name",
-    "enorasisCore.onAnyClassReceived": "όταν λάβω κλάση enorasisCore",
-    "enorasisCore.onClassReceived": "όταν λάβω κλάση %className από enorasisCore",
-    "enorasisCore.onConnected": "όταν συνδεθεί enorasisCore",
-    "enorasisCore.onDisconnected": "όταν αποσυνδεθεί enorasisCore"
+  "EnorasisLink.BluetoothAndUsb|block": "Bluetooth και USB",
+  "EnorasisLink.BluetoothOnly|block": "μόνο Bluetooth",
+  "EnorasisLink.UsbOnly|block": "μόνο καλώδιο USB",
+  "enorasisCore.classIs|block": "κλάση enorasisCore είναι %name",
+  "enorasisCore.connection|block": "τρόπος σύνδεσης enorasisCore",
+  "enorasisCore.isConnected|block": "enorasisCore συνδεδεμένο",
+  "enorasisCore.lastClass|block": "τελευταία κλάση enorasisCore",
+  "enorasisCore.onAnyClassReceived|block": "όταν λάβω κλάση enorasisCore",
+  "enorasisCore.onClassReceived|block": "όταν λάβω κλάση %className από enorasisCore",
+  "enorasisCore.onConnected|block": "όταν συνδεθεί enorasisCore",
+  "enorasisCore.onDisconnected|block": "όταν αποσυνδεθεί enorasisCore",
+  "enorasisCore.send|block": "στείλε στο enorasisCore %text",
+  "enorasisCore.startWith|block": "έναρξη enorasisCore μέσω %link",
+  "enorasisCore.start|block": "έναρξη enorasisCore",
+  "{id:group}Classes": "Κλάσεις",
+  "{id:group}Connection": "Σύνδεση",
+  "{id:group}Send": "Αποστολή",
+  "{id:group}Start": "Έναρξη"
 }

@@ -1,0 +1,19 @@
+{
+  "EnorasisLink": "Πώς συνδέεται το enorasisCore με τη micro:bit.",
+  "enorasisCore": "enorasisCore: συνδέει τη micro:bit με τη μηχανική μάθηση στον browser (enorasiscore.eu). Το μοντέλο τρέχει στον browser και η micro:bit λαμβάνει τις κλάσεις μέσω Bluetooth ή καλωδίου USB.",
+  "enorasisCore.classIs": "Αληθές όταν η τελευταία κλάση από το enorasisCore είναι ίδια με το όνομα.",
+  "enorasisCore.classIs|param|name": "το όνομα της κλάσης για σύγκριση, π.χ. \"left\"",
+  "enorasisCore.connection": "Πώς είναι συνδεδεμένο τώρα το enorasisCore: \"Bluetooth\", \"USB\" ή κενό όταν δεν είναι συνδεδεμένο.",
+  "enorasisCore.isConnected": "Αληθές όσο το enorasisCore είναι συνδεδεμένο, μέσω Bluetooth ή καλωδίου USB.",
+  "enorasisCore.lastClass": "Η τελευταία κλάση που έστειλε το enorasisCore (π.χ. left, red, go).",
+  "enorasisCore.onAnyClassReceived": "Τρέχει όταν το enorasisCore αναγνωρίσει οποιαδήποτε κλάση.",
+  "enorasisCore.onClassReceived": "Τρέχει όταν το enorasisCore στείλει ακριβώς αυτή την κλάση. Το όνομα πρέπει να είναι ίδιο με την κλάση που εκπαιδεύσατε (ίδια γράμματα, κεφαλαία και πεζά).",
+  "enorasisCore.onClassReceived|param|className": "το ακριβές όνομα της κλάσης, π.χ. \"left\"",
+  "enorasisCore.onConnected": "Τρέχει όταν συνδεθεί το enorasisCore, μέσω Bluetooth ή καλωδίου USB.",
+  "enorasisCore.onDisconnected": "Τρέχει όταν κλείσει η σύνδεση με το enorasisCore, μέσω Bluetooth ή καλωδίου USB.",
+  "enorasisCore.send": "Στέλνει ένα σύντομο μήνυμα από τη micro:bit στο enorasisCore, μέσω της σύνδεσης που χρησιμοποιείται. Το περιβάλλον εκμάθησης το δείχνει στην κάρτα της πλακέτας.",
+  "enorasisCore.send|param|text": "το μήνυμα, π.χ. \"A pressed\"",
+  "enorasisCore.start": "Ξεκινά το enorasisCore μέσω Bluetooth και καλωδίου USB. Υπάρχει για τα έργα από παλιότερες εκδόσεις.",
+  "enorasisCore.startWith": "Ξεκινά το enorasisCore, ώστε ο browser να στέλνει κλάσεις στη micro:bit. Διαλέξτε Bluetooth, καλώδιο USB ή και τα δύο.",
+  "enorasisCore.startWith|param|link": "πώς συνδέεται το enorasisCore: Bluetooth, καλώδιο USB ή και τα δύο"
+}

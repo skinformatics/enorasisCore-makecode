@@ -17,23 +17,30 @@
  *
  * Pass / fail criteria
  * --------------------
- *  - start()              PASS if it compiles and the UART service
- *                         starts without a simulator error.
+ *  - startWith(...)      PASS if it compiles and starts listening
+ *                         (Bluetooth and USB) without a simulator error.
+ *  - start()              PASS if the older block still compiles
+ *                         (kept for projects made before 0.1.8).
  *  - lastClass()          PASS if it returns a string at boot ("").
  *  - classIs("")          PASS if it returns a boolean at boot.
  *  - onAnyClassReceived   PASS if the handler registers (no throw).
  *  - onClassReceived(...)  PASS if specific-label handlers register.
  *  - onConnected /        PASS if the connection handlers register.
  *    onDisconnected
- *  - BLE data transfer    Tested on a real micro:bit V2 with
- *                         enorasisCore — not in the simulator.
+ *  - isConnected(),       PASS if they return a boolean and a string
+ *    connection()         at boot (false, "").
+ *  - send("...")          PASS if it compiles and does not throw
+ *                         when nothing is connected.
+ *  - Data transfer        Tested on a real micro:bit V2 with
+ *                         enorasisCore over Bluetooth and the USB
+ *                         cable, not in the simulator.
  *
  * The suite must not throw in the simulator even though it relies on
  * hardware Bluetooth that the simulator does not provide.
  */
 
-// start the BLE UART service
-enorasisCore.start()
+// start listening over Bluetooth and the USB cable
+enorasisCore.startWith(EnorasisLink.BluetoothAndUsb)
 
 // value blocks return sensible defaults before any label arrives
 let bootLabel = enorasisCore.lastClass()
@@ -63,4 +70,13 @@ enorasisCore.onConnected(function () {
 
 enorasisCore.onDisconnected(function () {
     basic.showIcon(IconNames.No)
+})
+
+// connection state at boot
+let bootConnected = enorasisCore.isConnected()
+let bootVia = enorasisCore.connection()
+
+// message back to the browser (ignored while nothing is connected)
+input.onButtonPressed(Button.A, function () {
+    enorasisCore.send("A pressed")
 })

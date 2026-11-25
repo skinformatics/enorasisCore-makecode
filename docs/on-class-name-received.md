@@ -1,18 +1,31 @@
-# on-class-name-received
+# on enorasisCore class received (one class)
 
-```package
-enorasis-core=github:skinformatics/enorasisCore-makecode
+Run code when enorasisCore sends **one specific** class label.
+
+```sig
+enorasisCore.onClassReceived("left", function () {})
 ```
 
-Runs your code when enorasisCore sends a **specific** class label.
+## Parameters
 
-The `className` parameter must match the class name from your enorasisCore training set exactly.
+* **className**: the class name exactly as you trained it in enorasisCore (same spelling, same upper and lower case).
+
+## Example
 
 ```blocks
+enorasisCore.startWith(EnorasisLink.BluetoothAndUsb)
 enorasisCore.onClassReceived("left", function () {
     pins.servoWritePin(AnalogPin.P0, 0)
 })
 enorasisCore.onClassReceived("right", function () {
     pins.servoWritePin(AnalogPin.P0, 180)
 })
+```
+
+## See also
+
+**on enorasisCore class received**, **enorasisCore class is**
+
+```package
+enorasis-core=github:skinformatics/enorasisCore-makecode
 ```
