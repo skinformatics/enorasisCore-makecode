@@ -6,7 +6,7 @@ Run code when enorasisCore connects to the micro:bit, over **Bluetooth** or the 
 enorasisCore.onConnected(function () {})
 ```
 
-The micro:bit shows a check mark first, then runs your code. Over the USB cable the connection starts when enorasisCore sends its first message after you press **Connect by USB cable**.
+The micro:bit shows a check mark first, then runs your code. Class labels keep arriving while this code runs. Over the USB cable the connection starts when enorasisCore sends its first message after you press **Connect by USB cable**.
 
 Before version 0.1.8 this block ran for Bluetooth only.
 

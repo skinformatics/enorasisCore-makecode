@@ -17,6 +17,8 @@ Place this block once, at the beginning of your program (for example in **on sta
 
 No Pairing Required is set automatically by the extension, so there is nothing to change in Project Settings.
 
+This block starts the Bluetooth UART service and the USB serial connection. Do not add **bluetooth uart service** or **bluetooth on data received** to the same project: a second block that reads new lines stops the class labels from reaching your blocks.
+
 ## Requirements
 
 BBC micro:bit **V2**, and enorasisCore open in Chrome or Edge. The USB cable works in Chrome or Edge on a computer.

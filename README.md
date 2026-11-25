@@ -45,6 +45,8 @@ This pattern matches many real systems: smart sensing on a capable device, contr
 
 Everything you need is in the **EnorasisCore** category. You do not need blocks from the Bluetooth or Serial categories.
 
+Do not add **bluetooth uart service** or **bluetooth on data received** to the same project. The start block already starts the Bluetooth UART service, and a second block that reads new lines stops the class labels from reaching your blocks.
+
 ---
 
 ## Install
@@ -181,15 +183,16 @@ For teachers and developers who want to connect other software.
 - **Bluetooth:** Nordic UART service. **USB cable:** serial port at 115200 baud.
 - Lines that start with `#` are control messages from enorasisCore and never reach your blocks, so do not start a class name with `#`:
   - `#hello`: the micro:bit answers `ok enorasisCore microbit` over the cable, so enorasisCore can confirm that the program is running.
-  - `#ping`: sent every 2 seconds over the cable. If no line arrives for 5 seconds, the cable connection counts as ended.
+  - `#ping`: sent every 2 seconds over the cable. After the first `#ping`, if no line arrives for 5 seconds, the cable connection counts as ended. Software that never sends `#ping` keeps the connection open.
   - `#bye`: sent when the user disconnects the cable connection.
-- The extension uses `serial.onDataReceived` for new lines. Avoid adding another serial handler for new lines in the same project.
+- The micro:bit answers `#hello` at once, before it shows any icon or runs your blocks.
+- The extension reads new lines with `serial.onDataReceived` and `bluetooth.onUartDataReceived`, and sets the serial receive buffer to 128 bytes. Avoid adding another handler for new lines, over the cable or Bluetooth, in the same project.
 
 ---
 
 ## Updating from an older version
 
-Open your project, go to **Extensions** and update **enorasis-core** when MakeCode offers it, or remove the extension and add it again. Your blocks keep working: the older `start enorasisCore` block still runs and now listens over Bluetooth and the USB cable.
+A project keeps the extension version it was created with. To move a project to the latest version, open it, press **Explorer** under the simulator and press the update button next to **enorasis-core**, then download the program to the micro:bit again. Your blocks keep working: the older `start enorasisCore` block still runs and listens over Bluetooth and the USB cable.
 
 ---
 
@@ -197,6 +200,7 @@ Open your project, go to **Extensions** and update **enorasis-core** when MakeCo
 
 | Version | Changes |
 |---------|---------|
+| 0.1.9 | The micro:bit answers enorasisCore at once over the USB cable, and keeps reading class labels while icons and your connection blocks run. The cable counts as disconnected after 5 seconds of silence only when enorasisCore sends `#ping`. Larger serial receive buffer. |
 | 0.1.8 | `start enorasisCore over (Bluetooth and USB)` with a choice of connection. Connect and disconnect events for the USB cable too. New blocks: `enorasisCore connected`, `enorasisCore connection`, `send to enorasisCore`. No Pairing Required is set automatically. Block groups. Translations in the MakeCode format, with tooltips. |
 | 0.1.7 | Class labels over the USB cable. First translations. |
 | 0.1.6 | New icon. |

@@ -27,6 +27,7 @@ namespace enorasisCore {
     let _bleOn = false
     let _usbOn = false
     let _usbLast = 0
+    let _usbPinged = false
     let _useBle = false
     let _useUsb = false
 
@@ -40,18 +41,24 @@ namespace enorasisCore {
     let _connectedHandlers: (() => void)[] = []
     let _disconnectedHandlers: (() => void)[] = []
 
+    // Icons and your connection blocks run in the background,
+    // so the micro:bit keeps reading class labels while they run.
     function fireConnected(): void {
-        basic.showIcon(IconNames.Yes)
-        for (let i = 0; i < _connectedHandlers.length; i++) {
-            _connectedHandlers[i]()
-        }
+        control.inBackground(function () {
+            basic.showIcon(IconNames.Yes)
+            for (let i = 0; i < _connectedHandlers.length; i++) {
+                _connectedHandlers[i]()
+            }
+        })
     }
 
     function fireDisconnected(): void {
-        basic.showIcon(IconNames.No)
-        for (let i = 0; i < _disconnectedHandlers.length; i++) {
-            _disconnectedHandlers[i]()
-        }
+        control.inBackground(function () {
+            basic.showIcon(IconNames.No)
+            for (let i = 0; i < _disconnectedHandlers.length; i++) {
+                _disconnectedHandlers[i]()
+            }
+        })
     }
 
     // A line from the USB cable means the browser is connected by cable.
@@ -66,6 +73,7 @@ namespace enorasisCore {
     }
 
     function usbGone(): void {
+        _usbPinged = false
         if (_usbOn) {
             _usbOn = false
             if (!_bleOn) {
@@ -77,19 +85,27 @@ namespace enorasisCore {
     function receive(line: string, fromUsb: boolean): void {
         // the browser sends one class per line; \r may come from serial terminals
         let label = line.replace("\r", "").trim()
+        // control lines from enorasisCore start with # and never reach your blocks;
+        // the reply to #hello goes out first, before anything else runs
+        if (label.length > 0 && label.charAt(0) == "#") {
+            if (!fromUsb) {
+                return
+            }
+            if (label == "#hello") {
+                serial.writeLine("ok enorasisCore microbit")
+            } else if (label == "#bye") {
+                usbGone()
+                return
+            } else if (label == "#ping") {
+                _usbPinged = true
+            }
+            usbAlive()
+            return
+        }
         if (fromUsb) {
             usbAlive()
         }
         if (label.length == 0) {
-            return
-        }
-        // control lines from enorasisCore start with # and never reach your blocks
-        if (label.charAt(0) == "#") {
-            if (label == "#hello" && fromUsb) {
-                serial.writeLine("ok enorasisCore microbit")
-            } else if (label == "#bye" && fromUsb) {
-                usbGone()
-            }
             return
         }
         _lastClass = label
@@ -138,15 +154,18 @@ namespace enorasisCore {
         }
         _usbReady = true
         serial.setBaudRate(BaudRate.BaudRate115200)
+        // room for several lines while your blocks run (the default is 20 bytes)
+        serial.setRxBufferSize(128)
         serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
             receive(serial.readUntil(serial.delimiters(Delimiters.NewLine)), true)
         })
-        // enorasisCore sends a short #ping every 2 seconds over the cable;
-        // no line for 5 seconds means the cable connection has ended
+        // enorasisCore sends a short #ping every 2 seconds over the cable.
+        // After the first #ping, no line for 5 seconds means the cable connection has ended.
+        // Pages that do not send #ping never trigger this check.
         control.inBackground(function () {
             while (true) {
                 basic.pause(1000)
-                if (_usbOn && control.millis() - _usbLast > 5000) {
+                if (_usbOn && _usbPinged && control.millis() - _usbLast > 5000) {
                     usbGone()
                 }
             }
