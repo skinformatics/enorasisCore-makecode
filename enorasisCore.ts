@@ -1,6 +1,7 @@
 /**
  * enorasisCore — connect micro:bit to browser Machine Learning (enorasiscore.eu).
- * The AI runs in the browser; the micro:bit receives class labels over BLE UART.
+ * The AI runs in the browser; the micro:bit receives class labels over Bluetooth (BLE UART)
+ * or over the USB cable (serial, 115200 baud). Both arrive as one line per class.
  */
 //% weight=95 color=#0066CC icon="\uf1eb"
 //% blockNamespace=enorasisCore
@@ -17,28 +18,50 @@ namespace enorasisCore {
     let _anyClassHandlers: (() => void)[] = []
     let _classHandlers: ClassHandler[] = []
 
+    function receive(line: string): void {
+        // the browser sends one class per line; \r may come from serial terminals
+        let label = line.replace("\r", "").trim()
+        if (label.length == 0) {
+            return
+        }
+        // control lines from the browser start with #
+        if (label.charAt(0) == "#") {
+            if (label == "#hello") {
+                serial.writeLine("ok enorasisCore microbit")
+            }
+            return
+        }
+        _lastClass = label
+        for (let i = 0; i < _anyClassHandlers.length; i++) {
+            _anyClassHandlers[i]()
+        }
+        for (let j = 0; j < _classHandlers.length; j++) {
+            if (_classHandlers[j].name == _lastClass) {
+                _classHandlers[j].handler()
+            }
+        }
+    }
+
     function ensureUartListener(): void {
         if (_listenerReady) {
             return
         }
         _listenerReady = true
+        // Bluetooth
         bluetooth.onUartDataReceived(serial.delimiters(Delimiters.NewLine), function () {
-            _lastClass = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
-            for (let i = 0; i < _anyClassHandlers.length; i++) {
-                _anyClassHandlers[i]()
-            }
-            for (let j = 0; j < _classHandlers.length; j++) {
-                if (_classHandlers[j].name == _lastClass) {
-                    _classHandlers[j].handler()
-                }
-            }
+            receive(bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine)))
+        })
+        // USB cable (enorasisCore 11 and newer can connect by cable)
+        serial.setBaudRate(BaudRate.BaudRate115200)
+        serial.onDataReceived(serial.delimiters(Delimiters.NewLine), function () {
+            receive(serial.readUntil(serial.delimiters(Delimiters.NewLine)))
         })
     }
 
     /**
-     * Start BLE so enorasisCore can send AI class labels from the browser.
+     * Start enorasisCore so the browser can send AI class labels over Bluetooth or the USB cable.
      */
-    //% blockId=enorasis_start block="start enorasisCore BLE"
+    //% blockId=enorasis_start block="start enorasisCore"
     //% weight=100 blockGap=8
     //% help=enorasis-core/docs/start
     export function start(): void {

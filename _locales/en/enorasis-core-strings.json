@@ -1,5 +1,5 @@
 {
-    "enorasisCore.start": "start enorasisCore BLE",
+    "enorasisCore.start": "start enorasisCore",
     "enorasisCore.lastClass": "last enorasisCore class",
     "enorasisCore.classIs": "enorasisCore class is %name",
     "enorasisCore.onAnyClassReceived": "on enorasisCore class received",

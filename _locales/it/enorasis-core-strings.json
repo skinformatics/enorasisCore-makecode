@@ -1,0 +1,9 @@
+{
+    "enorasisCore.start": "avvia enorasisCore",
+    "enorasisCore.lastClass": "ultima classe enorasisCore",
+    "enorasisCore.classIs": "la classe enorasisCore è %name",
+    "enorasisCore.onAnyClassReceived": "quando ricevo una classe enorasisCore",
+    "enorasisCore.onClassReceived": "quando ricevo la classe %className da enorasisCore",
+    "enorasisCore.onConnected": "quando enorasisCore si connette",
+    "enorasisCore.onDisconnected": "quando enorasisCore si disconnette"
+}

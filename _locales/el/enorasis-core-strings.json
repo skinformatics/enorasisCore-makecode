@@ -1,5 +1,5 @@
 {
-    "enorasisCore.start": "έναρξη enorasisCore BLE",
+    "enorasisCore.start": "έναρξη enorasisCore",
     "enorasisCore.lastClass": "τελευταία κλάση enorasisCore",
     "enorasisCore.classIs": "κλάση enorasisCore είναι %name",
     "enorasisCore.onAnyClassReceived": "όταν λάβω κλάση enorasisCore",

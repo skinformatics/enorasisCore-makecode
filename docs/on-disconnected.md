@@ -4,7 +4,7 @@
 enorasis-core=github:skinformatics/enorasisCore-makecode
 ```
 
-Runs when the Bluetooth connection from enorasisCore is lost.
+Runs when the Bluetooth connection from enorasisCore is lost. A USB cable connection has no disconnect event.
 
 The micro:bit shows an X icon when disconnected.
 

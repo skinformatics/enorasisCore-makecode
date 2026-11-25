@@ -1,0 +1,9 @@
+{
+    "enorasisCore.start": "start enorasisCore",
+    "enorasisCore.lastClass": "laatste enorasisCore-klasse",
+    "enorasisCore.classIs": "enorasisCore-klasse is %name",
+    "enorasisCore.onAnyClassReceived": "wanneer enorasisCore-klasse ontvangen",
+    "enorasisCore.onClassReceived": "wanneer enorasisCore-klasse %className ontvangen",
+    "enorasisCore.onConnected": "wanneer enorasisCore verbonden",
+    "enorasisCore.onDisconnected": "wanneer enorasisCore verbroken"
+}
