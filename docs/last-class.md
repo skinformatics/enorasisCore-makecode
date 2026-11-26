@@ -1,6 +1,6 @@
 # last enorasisCore class
 
-The **most recent class label** received from enorasisCore, as text.
+The **most recent class label** that your class blocks received from enorasisCore, as text.
 
 ```sig
 enorasisCore.lastClass()

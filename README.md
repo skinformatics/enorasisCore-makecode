@@ -186,6 +186,7 @@ For teachers and developers who want to connect other software.
   - `#ping`: sent every 2 seconds over the cable. After the first `#ping`, if no line arrives for 5 seconds, the cable connection counts as ended. Software that never sends `#ping` keeps the connection open.
   - `#bye`: sent when the user disconnects the cable connection.
 - The micro:bit answers `#hello` at once, before it shows any icon or runs your blocks.
+- Your class blocks run apart from reading. If new classes arrive while a block is still running, the newest class runs next. A long block, such as an animation with pauses, never stops the micro:bit from reading the cable or Bluetooth.
 - The extension reads new lines with `serial.onDataReceived` and `bluetooth.onUartDataReceived`, and sets the serial receive buffer to 128 bytes. Avoid adding another handler for new lines, over the cable or Bluetooth, in the same project.
 
 ---
@@ -200,6 +201,7 @@ A project keeps the extension version it was created with. To move a project to 
 
 | Version | Changes |
 |---------|---------|
+| 0.1.10 | Class blocks run apart from reading: a long block no longer delays new messages or causes a false disconnection over the cable. If several classes arrive while a block runs, the newest one runs next. |
 | 0.1.9 | The micro:bit answers enorasisCore at once over the USB cable, and keeps reading class labels while icons and your connection blocks run. The cable counts as disconnected after 5 seconds of silence only when enorasisCore sends `#ping`. Larger serial receive buffer. |
 | 0.1.8 | `start enorasisCore over (Bluetooth and USB)` with a choice of connection. Connect and disconnect events for the USB cable too. New blocks: `enorasisCore connected`, `enorasisCore connection`, `send to enorasisCore`. No Pairing Required is set automatically. Block groups. Translations in the MakeCode format, with tooltips. |
 | 0.1.7 | Class labels over the USB cable. First translations. |

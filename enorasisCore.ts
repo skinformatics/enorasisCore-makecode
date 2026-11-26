@@ -21,6 +21,9 @@ enum EnorasisLink {
 //% groups='["Start", "Classes", "Connection", "Send"]'
 namespace enorasisCore {
     let _lastClass = ""
+    let _pendingClass = ""
+    let _hasPending = false
+    let _dispatchReady = false
     let _bleReady = false
     let _usbReady = false
     let _bleEventsReady = false
@@ -108,15 +111,37 @@ namespace enorasisCore {
         if (label.length == 0) {
             return
         }
-        _lastClass = label
-        for (let i = 0; i < _anyClassHandlers.length; i++) {
-            _anyClassHandlers[i]()
+        // reading never waits for your blocks: the class is handed to the dispatcher
+        _pendingClass = label
+        _hasPending = true
+    }
+
+    // Your class blocks run here, apart from reading. If new classes arrive while a block
+    // is still running, the newest one runs next. Reading, the reply to #hello and the
+    // cable check keep working even when a block takes a long time.
+    function ensureDispatcher(): void {
+        if (_dispatchReady) {
+            return
         }
-        for (let j = 0; j < _classHandlers.length; j++) {
-            if (_classHandlers[j].name == _lastClass) {
-                _classHandlers[j].handler()
+        _dispatchReady = true
+        control.inBackground(function () {
+            while (true) {
+                if (_hasPending) {
+                    _hasPending = false
+                    _lastClass = _pendingClass
+                    for (let i = 0; i < _anyClassHandlers.length; i++) {
+                        _anyClassHandlers[i]()
+                    }
+                    for (let j = 0; j < _classHandlers.length; j++) {
+                        if (_classHandlers[j].name == _lastClass) {
+                            _classHandlers[j].handler()
+                        }
+                    }
+                } else {
+                    basic.pause(20)
+                }
             }
-        }
+        })
     }
 
     function ensureBleEvents(): void {
@@ -183,6 +208,7 @@ namespace enorasisCore {
     //% group="Start"
     //% help=enorasis-core/docs/start
     export function startWith(link: EnorasisLink): void {
+        ensureDispatcher()
         if (link != EnorasisLink.UsbOnly) {
             _useBle = true
             bluetooth.startUartService()

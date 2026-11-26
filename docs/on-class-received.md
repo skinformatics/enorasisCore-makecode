@@ -2,6 +2,8 @@
 
 Run code whenever **any** class label arrives from enorasisCore.
 
+Your code can take as long as it needs. If other classes arrive in the meantime, the newest one runs next.
+
 ```sig
 enorasisCore.onAnyClassReceived(function () {})
 ```

@@ -2,6 +2,8 @@
 
 Run code when enorasisCore sends **one specific** class label.
 
+Your code can take as long as it needs, for example an animation with pauses. If other classes arrive in the meantime, the newest one runs next.
+
 ```sig
 enorasisCore.onClassReceived("left", function () {})
 ```
